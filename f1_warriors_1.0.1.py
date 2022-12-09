@@ -7,12 +7,12 @@ from main_menu_game_ui import play
 # shape parameters
 size = width, height = (800, 720)
 road_w = int(width / 1.0)
-roadmark_w = int(width / 60)
+roadmark_w = int(width / 80)
 # location parameters
-right_lane = width / 4 + road_w / 2
-left_lane = width / 2- road_w / 4
+right_lane = width / 2+ road_w / 4
+left_lane = width / 4- road_w / 2
 # animation parameters
-speed = 4
+speed = 6
 
 # initiallize the app
 pygame.init()
@@ -48,9 +48,9 @@ plane2 = pygame.image.load("plane_2.png")
 plane2 = pygame.transform.scale(plane2, (492, 492))
 plane2 = pygame.transform.rotate(plane2, -180)
 plane2_loc = plane2.get_rect()
-plane2_loc.center = left_lane, height * 0.2
-
+plane2_loc.center = left_lane, height * .8
 counter = 0
+
 def start():
     run=True
     while run:
@@ -82,7 +82,7 @@ while running:
     #game_ui_play=play()
     # increase game difficulty overtime
     if counter == 5000:
-            speed += 0.15
+            speed += 4
             counter = 0
             print("level! Reached ,congrats", speed)
 
@@ -126,9 +126,16 @@ while running:
             if event.key in [K_d, K_RIGHT]:
                 plane_loc = plane_loc.move([int(road_w / 2), 0])
             #if plane_loc.colliderect(plane2):
-                #pygame.draw.rect(screen,(255,10,0),rect,4)
-            elif event.key == pygame.K_c:
-                start()
+                #pygame .draw.rect(screen,(255,10,0),rect,4)
+
+        def boundaries(plane):
+                if plane <= 0:
+                    plane = 0
+                elif plane <= 736:
+                    plane = 736
+
+                elif event.key == pygame.K_c:
+                    start()
 
     # draw road
     road_1=pygame.draw.rect(
