@@ -1,19 +1,17 @@
 import pygame, random
 from pygame.locals import *
-
+import pyparsing
 from main_menu_game_ui import play
-
 
 # shape parameters
 size = width, height = (800, 720)
 road_w = int(width / 1.0)
 roadmark_w = int(width / 80)
 # location parameters
-right_lane = width / 2+ road_w / 4
-left_lane = width / 4- road_w / 2
+right_lane = width / 4 + road_w / 2
+left_lane = width /2 - road_w /4
 # animation parameters
-speed = 6
-
+speed = 8
 # initiallize the app
 pygame.init()
 running = True
@@ -72,10 +70,6 @@ def start():
                     pygame.display.update()
                     #font =pygame.font.Font("freesansbold.tff",24)
 
-
-
-
-
 # game loop
 while running:
     counter += 1
@@ -128,7 +122,7 @@ while running:
             #if plane_loc.colliderect(plane2):
                 #pygame .draw.rect(screen,(255,10,0),rect,4)
 
-        def boundaries(plane):
+        #def boundaries(plane):
                 if plane <= 0:
                     plane = 0
                 elif plane <= 736:
@@ -137,6 +131,7 @@ while running:
                 elif event.key == pygame.K_c:
                     start()
 
+                    #boundaries(plane)
     # draw road
     road_1=pygame.draw.rect(
         screen,
