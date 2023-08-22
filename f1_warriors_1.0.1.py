@@ -1,7 +1,7 @@
 import pygame, random
 from pygame.locals import *
-#import pyparsing
 from main_menu_game_ui import play
+#import pyparsing
 
 # shape parameters
 size = width, height = (800, 720)
