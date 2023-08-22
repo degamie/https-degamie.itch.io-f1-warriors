@@ -1,6 +1,6 @@
 import pygame, random
 from pygame.locals import *
-import pyparsing
+#import pyparsing
 from main_menu_game_ui import play
 
 # shape parameters
